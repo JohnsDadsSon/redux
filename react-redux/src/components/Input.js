@@ -9,14 +9,6 @@ const Input = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
-  // var enterInput = document.getElementById("outlined-basic");
-  // enterInput.addEventListener("keyup", function (event) {
-  //   if (event.charCode === 13) {
-  //     event.preventDefault();
-  //     document.getElementById("addTodoButton").click();
-  //   }
-  // });
-
   const addTodo = () => {
     dispatch(
       saveTodo({
@@ -25,6 +17,7 @@ const Input = () => {
         id: uuidv4(),
       })
     );
+    setInput("");
   };
   return (
     <div className="input">

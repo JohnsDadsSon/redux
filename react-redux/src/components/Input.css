@@ -12,7 +12,6 @@
 #outlined-basic {
   width: 70vw;
 }
-
-.addTodoButton {
+.addTodoButton:active .addTodoButton {
   height: 50px;
 }
