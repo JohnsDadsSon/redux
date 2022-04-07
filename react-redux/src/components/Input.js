@@ -1,12 +1,31 @@
 import React, { useState } from "react";
 import "./Input.css";
 import Button from "@mui/material/Button";
-import { TextField, Switch, FormControlLabel, FormGroup } from "@mui/material";
-import { useFormControl } from "@mui/material/FormControl";
+import { TextField } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { saveTodo } from "../features/todoSlice";
+import { v4 as uuidv4 } from "uuid";
 const Input = () => {
   const [input, setInput] = useState("");
-  const addTodo = () => {};
+  const dispatch = useDispatch();
 
+  // var enterInput = document.getElementById("outlined-basic");
+  // enterInput.addEventListener("keyup", function (event) {
+  //   if (event.charCode === 13) {
+  //     event.preventDefault();
+  //     document.getElementById("addTodoButton").click();
+  //   }
+  // });
+
+  const addTodo = () => {
+    dispatch(
+      saveTodo({
+        item: input,
+        done: false,
+        id: uuidv4(),
+      })
+    );
+  };
   return (
     <div className="input">
       <TextField
@@ -15,31 +34,20 @@ const Input = () => {
         id="outlined-basic"
         label="Type your To-Do"
         variant="outlined"
-      />
+      ></TextField>
 
-      <Button value={input} s variant="contained">
+      <Button
+        className="addTodoButton"
+        id="addTodoButton"
+        value={input}
+        variant="contained"
+        onClick={addTodo}
+        color="primary"
+      >
         Add New To-Do
       </Button>
-
-      {/* <FormGroup>
-        <FormControlLabel
-          control={<Switch color="warning" label="Urgent" />}
-          label="Urgent"
-          id="urgentToggle"
-        />
-      </FormGroup> */}
     </div>
   );
 };
 
 export default Input;
-
-{
-  /* <input
-          id="inputBox"
-          type="text"
-          value={input}
-          placeholder="Type your To-Do"
-          onChange={(e) => setInput(e.target.value)}
-        /> */
-}
