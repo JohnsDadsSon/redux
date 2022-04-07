@@ -2,7 +2,7 @@
   border-radius: 12px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: left;
   background-color: white;
   padding: 10px;
   grid-gap: 10px;
@@ -12,6 +12,6 @@
 #outlined-basic {
   width: 70vw;
 }
-.addTodoButton:active .addTodoButton {
+.addTodoButton {
   height: 50px;
 }

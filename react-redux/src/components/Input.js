@@ -9,6 +9,12 @@ const Input = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
+  window.onkeydown = function (event) {
+    if (event.keyCode === 13) {
+      addTodo();
+    }
+  };
+
   const addTodo = () => {
     dispatch(
       saveTodo({
