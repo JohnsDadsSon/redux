@@ -33,6 +33,7 @@ const Input = () => {
         id="outlined-basic"
         label="Type your To-Do"
         variant="outlined"
+        autoComplete="off"
       ></TextField>
 
       <Button
