@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { deleteTodo, setCheck } from "../features/todoSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
-const TodoItem = ({ name, done, id }) => {
+const TodoItem = ({ name, done, id, theme }) => {
   const dispatch = useDispatch();
   const handleCheck = () => {
     dispatch(setCheck(id));
@@ -23,7 +23,7 @@ const TodoItem = ({ name, done, id }) => {
       </Button>
 
       <Checkbox
-        color="primary"
+        color={theme}
         checked={done}
         onChange={handleCheck}
         inputProps={{ "aria-label": "secondary checkbox" }}

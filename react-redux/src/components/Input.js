@@ -5,7 +5,7 @@ import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { saveTodo } from "../features/todoSlice";
 import { v4 as uuidv4 } from "uuid";
-const Input = () => {
+const Input = (props) => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
 
@@ -37,6 +37,7 @@ const Input = () => {
         label="Type your To-Do"
         variant="outlined"
         autoComplete="off"
+        color={props.theme}
       ></TextField>
 
       <Button
@@ -45,7 +46,7 @@ const Input = () => {
         value={input}
         variant="contained"
         onClick={addTodo}
-        color="primary"
+        color={props.theme}
       >
         Add New To-Do
       </Button>

@@ -11,7 +11,7 @@ export const todoSlice = createSlice({
       state.todoList.push(action.payload);
     },
     deleteTodo: (state, action) => {
-      const index = state.todoList.findIndex(({ id }) => id == action.payload);
+      const index = state.todoList.findIndex(({ id }) => id === action.payload);
       return void { todoList: [...state.todoList.splice(index, 1)] };
     },
 
