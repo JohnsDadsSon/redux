@@ -2,7 +2,7 @@ import React from "react";
 import "./TodoItem.css";
 import { Checkbox } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { setCheck } from "../features/todoSlice";
+import { deleteTodo, setCheck } from "../features/todoSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { Button } from "@mui/material";
 const TodoItem = ({ name, done, id }) => {
@@ -11,12 +11,14 @@ const TodoItem = ({ name, done, id }) => {
     dispatch(setCheck(id));
   };
 
-  const deleteTodo = (id) => {};
+  const handleDeleteClick = () => {
+    dispatch(deleteTodo(id));
+  };
 
   return (
     <div className="TodoItem">
       <p className={done && "todoItem--done"}>{name}</p>
-      <Button color="error" onClick={deleteTodo(id)}>
+      <Button color="error" onClick={handleDeleteClick}>
         <DeleteIcon />
       </Button>
 

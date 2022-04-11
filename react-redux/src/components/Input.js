@@ -14,16 +14,19 @@ const Input = () => {
       addTodo();
     }
   };
-
   const addTodo = () => {
-    dispatch(
-      saveTodo({
-        item: input,
-        done: false,
-        id: uuidv4(),
-      })
-    );
-    setInput("");
+    if (document.getElementById("outlined-basic").value === "") {
+      alert("Enter a To-Do Item");
+    } else {
+      dispatch(
+        saveTodo({
+          item: input,
+          done: false,
+          id: uuidv4(),
+        })
+      );
+      setInput("");
+    }
   };
   return (
     <div className="input">
